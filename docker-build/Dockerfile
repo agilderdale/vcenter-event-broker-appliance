@@ -1,4 +1,5 @@
-FROM ubuntu:xenial
+\\FROM ubuntu:xenial
+FROM golang:alpine
 
 ENV OVFTOOL_FILENAME=VMware-ovftool-4.3.0-14746126-lin.x86_64.bundle
 ENV PACKER_DEV=1

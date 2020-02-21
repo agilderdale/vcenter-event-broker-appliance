@@ -12,11 +12,11 @@ RUN /bin/sh /tmp/$OVFTOOL_FILENAME --console --required --eulas-agreed \
     && ovftool -v
 
 RUN apt-get update
+RUN apt-get install -y git bash openssl
 RUN apt-get install -y curl wget 
 RUN curl -sSL https://cli.openfaas.com | sh
 RUN apt-get install -y docker.io
 
-RUN apk add --update git bash openssl
 RUN go get github.com/mitchellh/gox
 RUN go get github.com/hashicorp/packer
 

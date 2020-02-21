@@ -7,8 +7,8 @@ ADD $OVFTOOL_FILENAME .
 
 WORKDIR /root
 
-RUN /bin/sh /tmp/$OVFTOOL_FILENAME --console --required --eulas-agreed \
-    && rm -f /tmp/$OVFTOOL_FILENAME \
+RUN /bin/sh ./$OVFTOOL_FILENAME --console --required --eulas-agreed \
+    && rm -f ./$OVFTOOL_FILENAME \
     && ovftool -v
 
 RUN apt-get update

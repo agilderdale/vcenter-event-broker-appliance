@@ -15,4 +15,5 @@ jobs:
             echo 'Building ISO for VEBA'
             echo $CIRCLE_WORKING_DIRECTORY
             git clone https://github.com/agilderdale/vcenter-event-broker-appliance.git
+            docker images
             bash ./vcenter-event-broker-appliance/build.sh

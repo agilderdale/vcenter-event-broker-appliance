@@ -3,12 +3,12 @@ FROM ubuntu:xenial
 ENV OVFTOOL_FILENAME=VMware-ovftool-4.3.0-14746126-lin.x86_64.bundle
 ENV PACKER_DEV=1
 
-ADD $OVFTOOL_FILENAME .
+ADD $OVFTOOL_FILENAME ./
 
 WORKDIR /root
 
-RUN /bin/sh ./$OVFTOOL_FILENAME --console --required --eulas-agreed \
-    && rm -f ./$OVFTOOL_FILENAME \
+RUN /bin/sh $OVFTOOL_FILENAME --console --required --eulas-agreed \
+    && rm -f $OVFTOOL_FILENAME \
     && ovftool -v
 
 RUN apt-get update

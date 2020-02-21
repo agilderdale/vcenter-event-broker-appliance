@@ -12,5 +12,5 @@ if [[ "$1" -gt "-1" ]] && [[ $1 == "dev" ]]; then
 else
     echo "Applying packer build to photon.json ..."
 #    packer build -var-file=photon-builder.json -var-file=photon-version.json photon.json
-    docker run -i -t -v ${PWD}:/tmp/config hashicorp/packer:full build -var-file=/tmp/config/photon-builder.json -var-file=/tmp/config/photon-version.json /tmp/config/photon.json
+    docker run -i -t -v ${PWD}:/tmp/config oveftool-test:0.3 build -var-file=/tmp/config/photon-builder.json -var-file=/tmp/config/photon-version.json /tmp/config/photon.json
 fi

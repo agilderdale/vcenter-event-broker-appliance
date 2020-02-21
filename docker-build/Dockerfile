@@ -30,6 +30,8 @@ RUN cd /opt && wget https://storage.googleapis.com/golang/go${GOVERSION}.linux-a
     ln -s /opt/go/bin/go /usr/bin/ && \
     mkdir $GOPATH
 
+ENV PATH /opt/go/bin:/usr/bin:${PATH}
+
 RUN go get github.com/mitchellh/gox
 RUN go get github.com/hashicorp/packer
 

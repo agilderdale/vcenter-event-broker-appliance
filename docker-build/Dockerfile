@@ -33,7 +33,6 @@ RUN cd /opt && wget https://storage.googleapis.com/golang/go${GOVERSION}.linux-a
 RUN go get github.com/mitchellh/gox
 RUN go get github.com/hashicorp/packer
 
-ENV GOPATH /root/.go
 
 WORKDIR $GOPATH/src/github.com/hashicorp/packer
 

@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: licja/ovftool-packer-openfaas:0.3
     steps:
+      - setup_remote_docker
       - run:
           name: The First Step
           command: |

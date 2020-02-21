@@ -25,17 +25,17 @@ RUN /bin/sh /tmp/$OVFTOOL_FILENAME --console --required --eulas-agreed \
 
 RUN curl -sSL https://cli.openfaas.com | sh
 
+RUN cd /opt && wget https://storage.googleapis.com/golang/go${GOVERSION}.linux-amd64.tar.gz && \
+    tar zxf go${GOVERSION}.linux-amd64.tar.gz && rm go${GOVERSION}.linux-amd64.tar.gz && \
+    ln -s /opt/go/bin/go /usr/bin/ && \
+    mkdir $GOPATH
+
 RUN go get github.com/mitchellh/gox
 RUN go get github.com/hashicorp/packer
 
 WORKDIR $GOPATH/src/github.com/hashicorp/packer
 
 RUN /bin/bash scripts/build.sh
-
-RUN cd /opt && wget https://storage.googleapis.com/golang/go${GOVERSION}.linux-amd64.tar.gz && \
-    tar zxf go${GOVERSION}.linux-amd64.tar.gz && rm go${GOVERSION}.linux-amd64.tar.gz && \
-    ln -s /opt/go/bin/go /usr/bin/ && \
-    mkdir $GOPATH
 
 ENTRYPOINT ["ovftool"]
 

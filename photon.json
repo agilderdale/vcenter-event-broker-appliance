@@ -53,52 +53,52 @@
       "type": "shell",
       "expect_disconnect" : true,
       "scripts": [
-        "scripts/photon-settings.sh",
-        "scripts/photon-docker.sh"
+        "/tmp/config/scripts/photon-settings.sh",
+        "/tmp/config/scripts/photon-docker.sh"
       ]
     },
     {
       "type": "shell",
       "pause_before": "20s",
       "scripts": [
-        "scripts/photon-containers.sh"
+        "/tmp/config/scripts/photon-containers.sh"
       ]
     },
     {
       "type": "shell",
       "scripts": [
-        "scripts/photon-openfaas.sh",
-        "scripts/photon-cleanup.sh"
+        "/tmp/config/scripts/photon-openfaas.sh",
+        "/tmp/config/scripts/photon-cleanup.sh"
       ]
     },
     {
       "type": "file",
-      "source": "files/rc.local",
+      "source": "/tmp/config/files/rc.local",
       "destination": "/etc/rc.d/rc.local"
     },
     {
       "type": "file",
-      "source": "files/setup-banner.sh",
+      "source": "/tmp/config/files/setup-banner.sh",
       "destination": "/root/setup-banner.sh"
     },
     {
       "type": "file",
-      "source": "files/setup.sh",
+      "source": "/tmp/config/files/setup.sh",
       "destination": "/root/setup.sh"
     },
     {
       "type": "file",
-      "source": "files/tinywww.yml",
+      "source": "/tmp/config/files/tinywww.yml",
       "destination": "/root/tinywww.yml"
     },
     {
       "type": "file",
-      "source": "files/tinywww-debug.yml",
+      "source": "/tmp/config/files/tinywww-debug.yml",
       "destination": "/root/tinywww-debug.yml"
     },
     {
       "type": "file",
-      "source": "files/kubeconfig.yml",
+      "source": "/tmp/config/files/kubeconfig.yml",
       "destination": "/root/kubeconfig.yml"
     }
   ],
@@ -107,7 +107,7 @@
       "type": "shell-local",
       "environment_vars": ["VEBA_VERSION={{ user `version` }}", "VEBA_APPLIANCE_NAME={{ user `vm_name` }}", "FINAL_VEBA_APPLIANCE_NAME={{ user `vm_name` }}_{{user `version`}}", "VEBA_OVF_TEMPLATE={{ user `veba_ovf_template` }}"],
       "inline": [
-        "cd manual",
+        "cd /tmp/config/manual",
         "./add_ovf_properties.sh"
       ]
     },

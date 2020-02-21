@@ -13,4 +13,5 @@ jobs:
           name: Build ISO
           command: |
             echo 'Building ISO for VEBA'
-            ./build.sh
+            echo $CIRCLE_WORKING_DIRECTORY
+            ls $CIRCLE_WORKING_DIRECTORY
